@@ -37,12 +37,10 @@ function reducer(
   return pre;
 }
 
-type Props = {
+export function usePhoneParser(props: {
   defaultRegion?: CountryCode;
   defaultValue?: string;
-};
-
-export function usePhoneParser(props: Props) {
+}) {
   return useReducer(
     reducer,
     reducer(
