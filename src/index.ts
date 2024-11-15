@@ -1,2 +1,1 @@
-export * from './InputIntlPhone';
-export * from './InputPhone';
+export * from 'src/components';

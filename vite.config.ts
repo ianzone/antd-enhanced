@@ -6,6 +6,11 @@ import dts from 'vite-plugin-dts'; // https://github.com/qmhc/vite-plugin-dts/bl
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), dts({ rollupTypes: true, tsconfigPath: './tsconfig.app.json' })],
+  resolve: {
+    alias: {
+      src: resolve(__dirname, 'src'),
+    },
+  },
   build: {
     lib: {
       // https://vite.dev/config/build-options.html#build-lib
