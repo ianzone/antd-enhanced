@@ -1,6 +1,6 @@
 import { emojiFlag } from '@rapideditor/country-coder';
 import type { CountryCode } from 'libphonenumber-js';
-import { EmojiSVG } from './EmojiSVG';
+import { EmojiSVG } from '../EmojiSVG/EmojiSVG';
 
 type CountryFlagProps = {
   width?: string | number;
