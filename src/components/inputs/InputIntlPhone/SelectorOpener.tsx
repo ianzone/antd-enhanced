@@ -1,4 +1,5 @@
 import { useInputIntlPhoneContext } from './InputIntlPhoneContext';
+
 export function SelectorOpener({ children }: { children: React.ReactNode }) {
   const { isCountrySelectorOpen, setIsCountrySelectorOpen } = useInputIntlPhoneContext();
   return (
