@@ -1,7 +1,7 @@
-import Icon, { LaptopOutlined, MoonFilled, SunFilled } from '@ant-design/icons';
 import { Dropdown, type GetProp, type MenuProps } from 'antd';
+import { AiFillMoon, AiFillSun, AiOutlineLaptop } from 'react-icons/ai';
+import { LuSunMoon } from 'react-icons/lu';
 import type { ThemeMode } from 'src/hooks';
-import ThemeSVG from './theme.svg?react';
 
 type Props = {
   onSelect: (themeMode: ThemeMode) => void;
@@ -16,17 +16,17 @@ export function ThemeSelector(props: Props) {
     {
       key: 'light',
       label: 'Light',
-      icon: <SunFilled />,
+      icon: <AiFillSun />,
     },
     {
       key: 'dark',
       label: 'Dark',
-      icon: <MoonFilled />,
+      icon: <AiFillMoon />,
     },
     {
       key: 'system',
       label: 'System',
-      icon: <LaptopOutlined />,
+      icon: <AiOutlineLaptop />,
     },
   ];
 
@@ -35,7 +35,7 @@ export function ThemeSelector(props: Props) {
   };
   return (
     <Dropdown menu={{ items, onClick }}>
-      <Icon component={ThemeSVG} />
+      <LuSunMoon />
     </Dropdown>
   );
 }
