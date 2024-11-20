@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeSelector } from './ThemeSelector';
+import { ThemeSelector } from './ThemeModeSelector';
 
 const meta = {
   title: 'Settings/ThemeSelector',

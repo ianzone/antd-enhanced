@@ -6,7 +6,7 @@ export type Theme = 'light' | 'dark';
 
 const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
 
-function useCurrentTheme() {
+function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
     const init = matchMedia.matches ? 'dark' : 'light';
     return init;
@@ -31,7 +31,7 @@ function useCurrentTheme() {
   return theme;
 }
 
-export function useTheme(options: {
+export function useThemeMode(options: {
   localStorageKey?: string;
 }) {
   const { localStorageKey } = options;
@@ -53,7 +53,7 @@ export function useTheme(options: {
     [localStorageKey],
   );
 
-  const currentTheme = useCurrentTheme();
+  const currentTheme = useTheme();
   const theme = themeMode === 'system' ? currentTheme : themeMode;
 
   return {
