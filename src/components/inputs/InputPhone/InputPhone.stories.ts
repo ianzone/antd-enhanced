@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { InputPhone } from './InputPhone';
 
-const meta = {
+const meta: Meta<typeof InputPhone> = {
   title: 'Inputs/InputPhone',
   component: InputPhone,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof InputPhone>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -1,7 +1,7 @@
 {
   "name": "antd-enhanced",
   "version": "0.0.0",
-  "description": "Useful components for Ant Design",
+  "description": "Useful components based on Ant Design",
   "type": "module",
   "files": ["dist"],
   "exports": "./dist/index.js",
@@ -13,9 +13,9 @@
   },
   "scripts": {
     "lint": "biome check --fix src --reporter summary",
-    "build": "tsc && vite build",
+    "build": "tsc --project tsconfig.build.json",
     "dev": "storybook dev -p 6006",
-    "clear": "rm ./node_modules/.cache -r",
+    "dev:cc": "rm ./node_modules/.cache -r && nr dev",
     "build-storybook": "storybook build",
     "postinstall": "lefthook install",
     "commit": "git add -A && git-cz",
@@ -55,7 +55,6 @@
     "storybook": "^8.4.5",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
-    "vite-plugin-dts": "^4.3.0",
     "vite-plugin-svgr": "^4.3.0",
     "vitest": "^2.1.5"
   },

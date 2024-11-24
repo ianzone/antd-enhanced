@@ -23,7 +23,7 @@ export function CountrySelector() {
     customRegions,
   } = useInputIntlPhoneContext();
 
-  const onSelect: OnSelect = (value, option) => {
+  const onSelect: OnSelect = (value) => {
     setPhone({ countryCode: value });
     setIsCountrySelectorOpen(false);
   };
