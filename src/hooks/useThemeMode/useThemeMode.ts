@@ -31,10 +31,12 @@ function useTheme() {
   return theme;
 }
 
-export function useThemeMode(options: {
-  localStorageKey?: string;
-}) {
-  const { localStorageKey } = options;
+export function useThemeMode(
+  props: {
+    localStorageKey?: string;
+  } = {},
+) {
+  const { localStorageKey } = props;
 
   const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
     const preferredThemeMode =
