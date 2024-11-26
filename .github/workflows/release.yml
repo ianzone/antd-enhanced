@@ -3,42 +3,41 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
-  release:
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
+  prepare:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - uses: actions/checkout@v4
         with:
-          version: 9.x.x
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: lts/*
           cache: "pnpm"
+      - run: pnpm install -g @antfu/ni
+      - run: ni
 
-      - name: Install @antfu/ni
-        run: pnpm install -g @antfu/ni
+  release:
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - run: nr build
 
-      - name: Install dependencies
-        run: ni
-
-      - name: Build
-        run: nr build
-
-      - name: Release
-        run: nr release
+      - run: nr release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  storybook:
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}

@@ -1,7 +1,7 @@
 {
   "name": "antd-enhanced",
   "version": "0.0.0",
-  "description": "Useful components based on Ant Design",
+  "description": "Useful react components and hooks based on Ant Design",
   "type": "module",
   "files": ["dist"],
   "exports": "./dist/index.js",
@@ -20,7 +20,8 @@
     "build-storybook": "storybook build",
     "postinstall": "lefthook install",
     "commit": "git add -A && git-cz",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "@rapideditor/country-coder": "^5.3.0",
@@ -49,19 +50,23 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react-swc": "^3.7.1",
+    "chromatic": "^11.19.0",
     "git-cz": "^4.9.0",
     "happy-dom": "^15.11.6",
     "lefthook": "^1.8.4",
     "semantic-release": "^24.2.0",
     "storybook": "^8.4.5",
     "typescript": "^5.7.2",
-    "vite": "^5.4.11",
+    "vite": "^6.0.0",
     "vite-plugin-dts": "^4.3.0",
     "vite-plugin-svgr": "^4.3.0",
-    "vitest": "^2.1.5"
+    "vitest": "^2.1.6"
   },
   "engines": {
     "node": ">=22",
     "pnpm": ">=9"
+  },
+  "bugs": {
+    "url": "https://github.com/ianzone/antd-enhanced/issues"
   }
 }
