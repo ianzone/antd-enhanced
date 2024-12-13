@@ -2,7 +2,6 @@ import { resolve } from 'node:path';
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import svgr from 'vite-plugin-svgr'; // https://github.com/pd4d10/vite-plugin-svgr
 import pkg from './package.json';
 
 const { dependencies, peerDependencies } = pkg;
@@ -11,7 +10,6 @@ const { dependencies, peerDependencies } = pkg;
 export default defineConfig({
   plugins: [
     react(),
-    svgr(),
     dts({
       tsconfigPath: './tsconfig.app.json',
       exclude: ['**/*.test.*', '**/*.spec.*', '**/*.mdx', '**/*.stories.*'],

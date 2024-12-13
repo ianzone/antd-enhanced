@@ -1,1 +1,1 @@
-export * from './ThemeModeSelector/ThemeModeSelector';
+export * from './ThemeSelector/ThemeSelector';

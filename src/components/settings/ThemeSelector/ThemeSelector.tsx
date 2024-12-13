@@ -35,7 +35,7 @@ export function ThemeSelector(props: Props) {
   };
   return (
     <Dropdown menu={{ items, onClick }}>
-      <LuSunMoon />
+      <LuSunMoon style={{ cursor: 'pointer' }} />
     </Dropdown>
   );
 }
