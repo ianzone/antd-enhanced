@@ -49,7 +49,7 @@ jobs:
         with:
           node-version: lts/*
           cache: pnpm
-      - run: pnpm i && pnpm run build
+      - run: pnpm i && pnpm run build && pnpm i -g typescript
       - uses: cycjimmy/semantic-release-action@v4
         id: semantic
         env:
