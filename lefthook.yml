@@ -21,9 +21,9 @@ pre-commit:
     security:
       priority: 2
       run: gitleaks protect --staged --no-banner
-    unused:
+    unused: # https://knip.dev/reference/cli
       priority: 3
-      run: na knip --no-exit-code
+      run: na knip --no-exit-code --no-config-hints
     typescript:
       priority: 4
       glob: "*.{ts,tsx}"
@@ -33,7 +33,11 @@ pre-commit:
       glob: "*.{ts,tsx,js,jsx,json,jsonc,css}"
       run: na biome check --fix {staged_files} --reporter summary
       stage_fixed: true
-    # test:
-    #   priority: 6
-    #   glob: "*.{ts,tsx,js,jsx}"
-    #   run: na vitest related --run {staged_files}
+    vitest:
+      priority: 6
+      glob: "*/{hooks,utils,services}*.{ts,js}"
+      run: na vitest related --run {staged_files}
+    storybook:
+      priority: 7
+      glob: "*/{components,containers,pages}*.{ts,tsx,js,jsx}"
+      run: echo 'use storybook'
