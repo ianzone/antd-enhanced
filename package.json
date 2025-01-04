@@ -8,10 +8,6 @@
   "types": "./dist/index.d.ts",
   "style": "./dist/style.css",
   "homepage": "https://github.com/ianzone/antd-enhanced#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ianzone/antd-enhanced.git"
-  },
   "scripts": {
     "lint": "biome check --fix src",
     "build": "vite build",
@@ -53,13 +49,14 @@
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "biome-extends": "^1.0.1",
-    "chromatic": "^11.20.2",
+    "chromatic": "^11.22.0",
     "git-cz": "^4.9.0",
+    "knip": "^5.41.1",
     "lefthook": "^1.10.1",
-    "semantic-release": "^24.2.0",
+    "semantic-release": "^24.2.1",
     "storybook": "^8.4.7",
     "typescript": "^5.7.2",
-    "vite": "^6.0.6",
+    "vite": "^6.0.7",
     "vite-plugin-dts": "^4.4.0"
   },
   "engines": {

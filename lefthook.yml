@@ -21,16 +21,19 @@ pre-commit:
     security:
       priority: 2
       run: gitleaks protect --staged --no-banner
-    typescript:
+    unused:
       priority: 3
+      run: na knip --no-exit-code
+    typescript:
+      priority: 4
       glob: "*.{ts,tsx}"
       run: na tsc --noEmit
     biome:
-      priority: 4
+      priority: 5
       glob: "*.{ts,tsx,js,jsx,json,jsonc,css}"
       run: na biome check --fix {staged_files} --reporter summary
       stage_fixed: true
     # test:
-    #   priority: 5
+    #   priority: 6
     #   glob: "*.{ts,tsx,js,jsx}"
     #   run: na vitest related --run {staged_files}
