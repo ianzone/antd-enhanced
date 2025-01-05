@@ -49,8 +49,8 @@ jobs:
         with:
           node-version: lts/*
           cache: pnpm
-      - run: pnpm i && pnpm run build && pnpm i -g typescript
-      - uses: cycjimmy/semantic-release-action@v4
+      - run: pnpm i && pnpm run build
+      - run: pnpm run release
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

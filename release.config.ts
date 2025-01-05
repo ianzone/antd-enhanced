@@ -10,6 +10,12 @@ const config: GlobalConfig = {
     '@semantic-release/release-notes-generator',
     '@semantic-release/npm',
     '@semantic-release/github',
+    [
+      '@semantic-release/exec',
+      {
+        successCmd: 'echo "new_release_published=true" >> $GITHUB_OUTPUT',
+      },
+    ],
   ],
 };
 
