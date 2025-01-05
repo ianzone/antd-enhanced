@@ -1,4 +1,4 @@
 {
   "$schema": "./node_modules/knip/schema.json",
-  "ignoreBinaries": ["na", "nr", "nu"]
+  "ignoreBinaries": ["na", "nr", "nu", "nlx"]
 }
