@@ -57,10 +57,11 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     outputs:
       new_release_published: ${{ steps.semantic.outputs.new_release_published }}
+      has_docs_changes: ${{ steps.semantic.outputs.has_docs_changes }}
 
   storybook:
     needs: release
-    if: needs.release.outputs.new_release_published == 'true'
+    if: needs.release.outputs.new_release_published == 'true' || needs.release.outputs.has_docs_changes == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

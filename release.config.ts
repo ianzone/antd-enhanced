@@ -13,6 +13,11 @@ const config: GlobalConfig = {
     [
       '@semantic-release/exec',
       {
+        analyzeCommitsCmd:
+          // Check if any commit has type 'docs'
+          'if git log -1 --pretty=format:"%s" | grep -q "^docs"; then ' +
+          'echo "has_docs_changes=true" >> $GITHUB_OUTPUT; ' +
+          'fi',
         successCmd: 'echo "new_release_published=true" >> $GITHUB_OUTPUT',
       },
     ],
