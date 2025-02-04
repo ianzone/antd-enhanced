@@ -1,11 +1,10 @@
+# antd-enhanced
 
 ```bash
 npm i antd-enhanced
 ```
 
 // TODO: 完善文档
-
-hooks ref
 
 https://github.com/alewin/useWorker
 
