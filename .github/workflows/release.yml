@@ -9,48 +9,21 @@ permissions:
   pull-requests: write
 
 jobs:
-  prepare:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - id: cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.local/share/pnpm
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-      - uses: pnpm/action-setup@v4
-        with:
-          version: latest
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-          cache: pnpm
-      - name: Install
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: pnpm i
-
   release:
-    needs: prepare
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/cache@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          path: ~/.local/share/pnpm
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-      - uses: pnpm/action-setup@v4
-        with:
-          version: latest
+          bun-version: latest
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: pnpm
-      - run: pnpm i && pnpm run build
-      - run: pnpm run release
+      - run: bun i --frozen-lockfile && bun i -g @antfu/ni npm
+      - run: nr build
+      - run: nr release
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -67,18 +40,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/cache@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          path: ~/.local/share/pnpm
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-      - uses: pnpm/action-setup@v4
-        with:
-          version: latest
+          bun-version: latest
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: pnpm
-      - run: pnpm i && pnpm run build:storybook
+      - run: bun i --frozen-lockfile &&  bun run build:storybook
       - uses: chromaui/action@latest
         with:
           storybookBuildDir: storybook
