@@ -1,6 +1,6 @@
-import { Input, type InputProps, type InputRef } from 'antd';
+import { Input, type InputProps } from 'antd';
 import { AsYouType, type CountryCode, isValidPhoneNumber } from 'libphonenumber-js';
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 
 type InputFieldProps = Omit<InputProps, 'type' | 'defaultValue' | 'value' | 'status'>;
 
@@ -9,7 +9,7 @@ type InputPhoneProps = InputFieldProps & {
   defaultValue?: string;
 };
 
-export const InputPhone = forwardRef<InputRef, InputPhoneProps>((props, ref) => {
+export function InputPhone(props: InputPhoneProps) {
   const { onChange: customOnChange, countryCode, defaultValue, ...rest } = props;
   const [status, setStatus] = useState<'error' | undefined>();
   const [value, setValue] = useState(defaultValue);
@@ -26,7 +26,6 @@ export const InputPhone = forwardRef<InputRef, InputPhoneProps>((props, ref) => 
   return (
     <Input
       {...rest}
-      ref={ref}
       type='tel'
       autoComplete='tel-national'
       allowClear
@@ -35,4 +34,4 @@ export const InputPhone = forwardRef<InputRef, InputPhoneProps>((props, ref) => 
       value={value}
     />
   );
-});
+}

@@ -1,6 +1,4 @@
-import type { InputRef } from 'antd';
 import type { CountryCode } from 'libphonenumber-js';
-import { forwardRef } from 'react';
 import { CountrySelector, type CustomRegion } from './CountrySelector';
 import { InputField, type InputFieldProps } from './InputField';
 import { InputIntlPhoneProvider } from './InputIntlPhoneContext';
@@ -12,7 +10,7 @@ export type InputIntlPhoneProps = InputFieldProps & {
   customRegions?: CustomRegion[];
 };
 
-export const InputIntlPhone = forwardRef<InputRef, InputIntlPhoneProps>((props, ref) => {
+export function InputIntlPhone(props: InputIntlPhoneProps) {
   const { defaultRegion, defaultValue, customRegions, ...phoneInputFieldProps } = props;
   return (
     <div style={{ position: 'relative' }}>
@@ -21,11 +19,11 @@ export const InputIntlPhone = forwardRef<InputRef, InputIntlPhoneProps>((props, 
         defaultValue={defaultValue}
         customRegions={customRegions}
       >
-        <InputField {...phoneInputFieldProps} ref={ref} />
+        <InputField {...phoneInputFieldProps} />
         <SelectorOpener>
           <CountrySelector />
         </SelectorOpener>
       </InputIntlPhoneProvider>
     </div>
   );
-});
+}

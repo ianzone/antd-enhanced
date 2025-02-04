@@ -1,5 +1,5 @@
-import { Input, type InputProps, type InputRef } from 'antd';
-import { forwardRef, useEffect, useState } from 'react';
+import { Input, type InputProps } from 'antd';
+import { useEffect, useState } from 'react';
 import { useInputIntlPhoneContext } from '../InputIntlPhoneContext';
 import { FlagAddon } from './FlagAddon';
 
@@ -8,7 +8,7 @@ export type InputFieldProps = Omit<
   'type' | 'addonBefore' | 'defaultValue' | 'value' | 'status'
 >;
 
-export const InputField = forwardRef<InputRef, InputFieldProps>((props, ref) => {
+export function InputField(props: InputFieldProps) {
   const { onChange: customOnChange, onClear: customOnClear, ...rest } = props;
   const { phone: state, setPhone } = useInputIntlPhoneContext();
   const { phone, intlE164 } = state;
@@ -35,7 +35,6 @@ export const InputField = forwardRef<InputRef, InputFieldProps>((props, ref) => 
   return (
     <Input
       {...rest}
-      ref={ref}
       type='tel'
       autoComplete='tel'
       allowClear
@@ -46,4 +45,4 @@ export const InputField = forwardRef<InputRef, InputFieldProps>((props, ref) => 
       value={intlE164}
     />
   );
-});
+}

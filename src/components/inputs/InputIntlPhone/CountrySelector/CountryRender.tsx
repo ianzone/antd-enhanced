@@ -1,5 +1,5 @@
 import { Space } from 'antd';
-import { CountryFlag } from '../../../';
+import { CountryFlag } from 'src/components';
 import { useInputIntlPhoneContext } from '../InputIntlPhoneContext';
 import type { OptionRender } from './types';
 

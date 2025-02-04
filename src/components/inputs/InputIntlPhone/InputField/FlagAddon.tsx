@@ -1,4 +1,4 @@
-import { CountryFlag } from '../../../';
+import { CountryFlag } from 'src/components';
 import { useInputIntlPhoneContext } from '../InputIntlPhoneContext';
 
 export function FlagAddon() {

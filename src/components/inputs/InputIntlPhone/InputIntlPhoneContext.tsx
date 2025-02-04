@@ -46,7 +46,7 @@ export function InputIntlPhoneProvider({
     [phone, setPhone, customRegions, isCountrySelectorOpen],
   );
 
-  return <InputIntlPhoneContext.Provider value={value}>{children}</InputIntlPhoneContext.Provider>;
+  return <InputIntlPhoneContext value={value}>{children}</InputIntlPhoneContext>;
 }
 
 export function useInputIntlPhoneContext() {
