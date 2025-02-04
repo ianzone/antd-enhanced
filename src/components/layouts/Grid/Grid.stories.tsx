@@ -24,7 +24,7 @@ export const Default: Story = {
     style: { backgroundColor: 'lightgrey', height: '200px', width: '200px' },
     children: (
       <>
-        <GridCell rowIndex={2} colIndex={2} style={{ backgroundColor: 'purple' }}>
+        <GridCell rowIndex={1} colIndex={1} style={{ backgroundColor: 'purple' }}>
           5
         </GridCell>
         <div style={{ height: '100%', backgroundColor: 'red' }}>1</div>

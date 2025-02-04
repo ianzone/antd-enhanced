@@ -17,11 +17,13 @@ export function GridCell({
   rows = 1,
   cols = 1,
 }: CellProps) {
+  const rowLine = rowIndex + 1;
+  const colLine = colIndex + 1;
   return (
     <div
       style={{
         zIndex,
-        gridArea: `${rowIndex} / ${colIndex} / ${rowIndex + rows} / ${colIndex + cols}`,
+        gridArea: `${rowLine} / ${colLine} / ${rowLine + rows} / ${colLine + cols}`,
         ...style,
       }}
     >
