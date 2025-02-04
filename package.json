@@ -1,6 +1,6 @@
 {
   "name": "antd-enhanced",
-  "version": "1.8.1",
+  "version": "1.0.0",
   "description": "Useful react components and hooks based on Ant Design",
   "type": "module",
   "files": ["dist"],
