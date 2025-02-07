@@ -68,7 +68,7 @@ export function CountrySelector() {
       showSearch
       placeholder='Search Country'
       filterOption={filterOption}
-      optionRender={CountryRender}
+      optionRender={(opt, info) => <CountryRender option={opt.data} key={info.index} />}
       onSelect={onSelect}
       options={options}
       value={state.countryCode}

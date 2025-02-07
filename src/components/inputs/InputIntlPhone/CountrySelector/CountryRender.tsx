@@ -1,17 +1,17 @@
 import { Space } from 'antd';
 import { CountryFlag } from 'src/components';
 import { useInputIntlPhoneContext } from '../InputIntlPhoneContext';
-import type { OptionRender } from './types';
+import type { Option } from './types';
 
-export const CountryRender: OptionRender = (props) => {
-  const data = props.data;
+export function CountryRender(props: { option: Option }) {
+  const option = props.option;
   const { customRegions } = useInputIntlPhoneContext();
-  const customEmoji = customRegions?.find((region) => region.value === data.value)?.emoji;
+  const customEmoji = customRegions?.find((region) => region.value === option.value)?.emoji;
 
   return (
     <Space>
-      <CountryFlag countryCode={data.value} emoji={customEmoji} width={24} />
-      {data.label}
+      <CountryFlag countryCode={option.value} emoji={customEmoji} width={24} />
+      {option.label}
     </Space>
   );
-};
+}
