@@ -1,10 +1,12 @@
 # antd-enhanced
 
+## [Docs](https://release--6745c45c72a4cfd55c774d3f.chromatic.com/)
+
 ```bash
-npm i antd-enhanced
+bun i antd-enhanced
 ```
 
-// TODO: 完善文档
+// TODO: 添加钩子
 
 https://github.com/alewin/useWorker
 
