@@ -4,7 +4,7 @@ import type { GlobalConfig } from 'semantic-release';
 const config: GlobalConfig = {
   repositoryUrl: 'https://github.com/ianzone/antd-enhanced',
   tagFormat: 'v${version}',
-  branches: ['release'],
+  branches: ['main'],
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
