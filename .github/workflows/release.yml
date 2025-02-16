@@ -1,7 +1,7 @@
 name: Release
 on:
   push:
-    branches: [release]
+    branches: [main]
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - run: bun i --frozen-lockfile && bun i -g @antfu/ni npm
+      - run: bun i -g @antfu/ni npm && bun i --frozen-lockfile
       - run: nr build
       - run: nr release
         id: semantic
