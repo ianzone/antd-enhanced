@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { EmojiSVG } from './EmojiSVG';
 
 const meta = {
-  title: 'Images/EmojiSVG',
+  title: 'Image/EmojiSVG',
   component: EmojiSVG,
   parameters: {
     layout: 'centered',

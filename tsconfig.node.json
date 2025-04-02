@@ -1,7 +1,0 @@
-{
-  "extends": "es-proj/tsconfig/node",
-  "compilerOptions": {
-    "baseUrl": "."
-  },
-  "include": ["vite.config.ts", "vitest.config.ts"]
-}

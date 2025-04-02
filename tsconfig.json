@@ -1,11 +1,10 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
+  "extends": "@es-proj/configs/tsconfig.react",
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["src/*"]
     }
-  ]
+  }
 }

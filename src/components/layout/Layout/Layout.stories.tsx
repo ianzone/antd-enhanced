@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Content, Footer, Header, Layout, Sider } from './Layout';
 
 const meta: Meta<typeof Layout> = {
-  title: 'Layouts/Layout',
+  title: 'Layout/Layout',
   component: Layout,
   parameters: {
     layout: 'centered',

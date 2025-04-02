@@ -1,5 +1,4 @@
-import { run } from 'es-proj/js/bun';
-// import { $ } from 'zx';
+import { run } from '@es-proj/utils/bun';
 
 const currentBranch = (await run('git branch --show-current')).stdout;
 

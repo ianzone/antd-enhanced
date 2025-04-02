@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { CountryFlag } from './CountryFlag';
+import { InputPhone } from './InputPhone';
 
-const meta = {
-  title: 'Images/CountryFlag',
-  component: CountryFlag,
+const meta: Meta<typeof InputPhone> = {
+  title: 'Input/InputPhone',
+  component: InputPhone,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof CountryFlag>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -16,6 +16,5 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     countryCode: 'CN',
-    width: 24,
   },
 };

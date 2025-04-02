@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { InputIntlPhone } from './InputIntlPhone';
 
 const meta: Meta<typeof InputIntlPhone> = {
-  title: 'Inputs/InputIntlPhone',
+  title: 'Input/InputIntlPhone',
   component: InputIntlPhone,
   parameters: {
     layout: 'centered',

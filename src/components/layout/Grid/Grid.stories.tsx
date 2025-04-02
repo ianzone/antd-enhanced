@@ -3,7 +3,7 @@ import { Grid } from './Grid';
 import { GridCell } from './GridCell';
 
 const meta: Meta<typeof Grid> = {
-  title: 'Layouts/Grid',
+  title: 'Layout/Grid',
   component: Grid,
   parameters: {
     layout: 'centered',
