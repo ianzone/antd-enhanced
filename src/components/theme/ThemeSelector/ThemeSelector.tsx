@@ -4,6 +4,7 @@ import type { ThemeMode } from 'antd-style';
 import { useThemeMode } from 'antd-style';
 import { type ReactNode, useState } from 'react';
 import { AiFillMoon, AiFillSun, AiOutlineLaptop } from 'react-icons/ai';
+import { themeStore } from 'src/contexts';
 
 type OnClick = GetProp<MenuProps, 'onClick'>;
 
@@ -11,7 +12,16 @@ type Item = MenuItemType & { key: ThemeMode };
 
 export function ThemeSelector() {
   const { setThemeMode } = useThemeMode();
-  const [themeMode, setThemeModeState] = useState<ReactNode>(<AiOutlineLaptop />);
+  const [themeIcon, setThemeIcon] = useState<ReactNode>(() => {
+    const preferredTheme = themeStore.get();
+    return preferredTheme === 'dark' ? (
+      <AiFillMoon />
+    ) : preferredTheme === 'light' ? (
+      <AiFillSun />
+    ) : (
+      <AiOutlineLaptop />
+    );
+  });
 
   const items: Item[] = [
     {
@@ -33,7 +43,7 @@ export function ThemeSelector() {
 
   const onClick: OnClick = (e) => {
     setThemeMode(e.key as ThemeMode);
-    setThemeModeState(items.find((item) => item.key === e.key)?.icon);
+    setThemeIcon(items.find((item) => item.key === e.key)?.icon);
   };
-  return <Dropdown menu={{ items, onClick }}>{themeMode}</Dropdown>;
+  return <Dropdown menu={{ items, onClick }}>{themeIcon}</Dropdown>;
 }

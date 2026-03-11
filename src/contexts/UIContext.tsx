@@ -1,29 +1,26 @@
 import { type ThemeMode, ThemeProvider, useThemeMode } from 'antd-style';
-import type { ReactNode } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { IconContext } from 'react-icons';
 
 type Props = {
   children: ReactNode;
-  defaultThemeMode?: ThemeMode;
+  defaultTheme?: ThemeMode;
 };
 
 export function UIContext(props: Props) {
+  const { themeMode } = useThemeMode();
   const preferredTheme = themeStore.get();
-  console.log('preferredTheme', preferredTheme);
+
+  useEffect(() => {
+    themeStore.set(themeMode);
+  }, [themeMode]);
+
   return (
     // https://ant-design.github.io/antd-style/zh-CN/guide/switch-theme
-    <ThemeProvider defaultThemeMode={preferredTheme || props.defaultThemeMode || 'auto'}>
-      <StoreTheme />
+    <ThemeProvider defaultThemeMode={preferredTheme || props.defaultTheme || 'auto'}>
       <IconContext value={{ size: '1.2em' }}>{props.children}</IconContext>
     </ThemeProvider>
   );
-}
-
-function StoreTheme() {
-  const { themeMode } = useThemeMode();
-  console.log('themeMode', themeMode);
-  themeStore.set(themeMode);
-  return null;
 }
 
 export const themeStore = {
