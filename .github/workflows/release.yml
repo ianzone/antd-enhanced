@@ -24,7 +24,7 @@ jobs:
           node-version: lts/*
       - run: bun i -g @antfu/ni npm && bun i --frozen-lockfile
       - run: nr build
-      - run: nr release
+      - run: npx --package semantic-release --package @semantic-release/exec
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

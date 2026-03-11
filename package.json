@@ -23,7 +23,6 @@
     "prepare": "lefthook install",
     "commit": "git add -A && git commit --no-edit",
     "squash": "bun scripts/squash.ts && git commit --no-edit --no-verify",
-    "release": "npx --package semantic-release --package @semantic-release/exec",
     "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
