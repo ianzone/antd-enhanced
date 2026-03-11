@@ -22,9 +22,9 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: lts/*
-      - run: bun i -g @antfu/ni && bun i --frozen-lockfile
-      - run: nr build
-      - run: npx --package typescript --package semantic-release --package @semantic-release/exec semantic-release
+      - run: bun i --frozen-lockfile
+      - run: bun run build
+      - run: bunx --package semantic-release --package @semantic-release/exec semantic-release
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
