@@ -19,12 +19,12 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: lts/*
       - run: bun i -g @antfu/ni npm && bun i --frozen-lockfile
       - run: nr build
-      - run: npx --package semantic-release --package @semantic-release/exec
+      - run: npx --package semantic-release --package @semantic-release/exec semantic-release
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -43,7 +43,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: lts/*
       - run: bun i --frozen-lockfile &&  bun run build:storybook
