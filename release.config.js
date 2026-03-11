@@ -1,7 +1,8 @@
-import type { GlobalConfig } from 'semantic-release';
-
 // https://semantic-release.gitbook.io/semantic-release/usage/configuration
-const config: GlobalConfig = {
+/**
+ * @type {import('semantic-release').GlobalConfig}
+ */
+export default {
   repositoryUrl: 'https://github.com/ianzone/antd-enhanced',
   tagFormat: 'v${version}',
   branches: ['main'],
@@ -23,5 +24,3 @@ const config: GlobalConfig = {
     ],
   ],
 };
-
-export default config;
