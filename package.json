@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "storybook dev -p 6006",
     "dev:cc": "storybook dev -p 6006 --force-build-preview",
-    "build": "vite build && tsc -p ./tsconfig.app.json",
+    "build": "vite build && vite build -c vite.iife.ts && tsc -p ./tsconfig.app.json",
     "build:story": "storybook build --docs --output-dir storybook",
     "test": "nr test:ts && nr test:tsx",
     "test:ts": "vitest run --coverage",
