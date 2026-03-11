@@ -13,11 +13,12 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
-    outDir: 'dist/iife',
+    emptyOutDir: false,
     lib: {
       entry: 'src/index.ts',
       formats: ['iife'],
       name: 'AntdEnhanced',
+      fileName: 'index',
     },
     rollupOptions: {
       external: [...Object.keys(pkg.peerDependencies), 'react/jsx-runtime'],

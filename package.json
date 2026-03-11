@@ -10,6 +10,10 @@
   "types": "./dist/index.d.ts",
   "style": "./dist/style.css",
   "homepage": "https://github.com/ianzone/antd-enhanced#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ianzone/antd-enhanced"
+  },
   "scripts": {
     "dev": "storybook dev -p 6006",
     "dev:cc": "storybook dev -p 6006 --force-build-preview",
