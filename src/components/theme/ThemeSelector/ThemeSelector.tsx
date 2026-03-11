@@ -1,16 +1,18 @@
 import { Dropdown, type GetProp, type MenuProps } from 'antd';
+import type { MenuItemType } from 'antd/es/menu/interface';
 import type { ThemeMode } from 'antd-style';
 import { useThemeMode } from 'antd-style';
-import type { ItemType } from 'antd/es/menu/interface';
+import { type ReactNode, useState } from 'react';
 import { AiFillMoon, AiFillSun, AiOutlineLaptop } from 'react-icons/ai';
-import { LuSunMoon } from 'react-icons/lu';
 
 type OnClick = GetProp<MenuProps, 'onClick'>;
 
-type Item = ItemType & { key: ThemeMode };
+type Item = MenuItemType & { key: ThemeMode };
 
 export function ThemeSelector() {
   const { setThemeMode } = useThemeMode();
+  const [themeMode, setThemeModeState] = useState<ReactNode>(<AiOutlineLaptop />);
+
   const items: Item[] = [
     {
       key: 'light',
@@ -31,12 +33,7 @@ export function ThemeSelector() {
 
   const onClick: OnClick = (e) => {
     setThemeMode(e.key as ThemeMode);
+    setThemeModeState(items.find((item) => item.key === e.key)?.icon);
   };
-  return (
-    <Dropdown menu={{ items, onClick }}>
-      <div>
-        <LuSunMoon style={{ cursor: 'pointer' }} />
-      </div>
-    </Dropdown>
-  );
+  return <Dropdown menu={{ items, onClick }}>{themeMode}</Dropdown>;
 }
