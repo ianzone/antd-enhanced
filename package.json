@@ -23,7 +23,7 @@
     "prepare": "lefthook install",
     "commit": "git add -A && git commit --no-edit",
     "squash": "bun scripts/squash.ts && git commit --no-edit --no-verify",
-    "release": "semantic-release",
+    "release": "npx --package semantic-release --package @semantic-release/exec",
     "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
@@ -43,7 +43,6 @@
     "@biomejs/biome": "^2.4.6",
     "@chromatic-com/storybook": "^5.0.1",
     "@es-proj/utils": "^1.6.7",
-    "@semantic-release/exec": "^7.1.0",
     "@storybook/addon-a11y": "^10.2.17",
     "@storybook/addon-docs": "^10.2.17",
     "@storybook/addon-vitest": "^10.2.17",
