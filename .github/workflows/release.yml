@@ -46,7 +46,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: lts/*
-      - run: bun i --frozen-lockfile &&  bun run build:storybook
+      - run: bun i --frozen-lockfile &&  bun run build:story
       - uses: chromaui/action@latest
         with:
           storybookBuildDir: storybook
