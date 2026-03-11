@@ -3,7 +3,7 @@
 ## [Docs](https://release--6745c45c72a4cfd55c774d3f.chromatic.com/)
 
 ```bash
-bun i antd-enhanced
+bun add antd-enhanced
 ```
 
 // TODO: 添加钩子

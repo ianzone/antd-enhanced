@@ -1,0 +1,10 @@
+{
+  "extends": "@es-proj/configs/tsconfig.react",
+  "compilerOptions": {
+    "rootDir": "src",
+    "emitDeclarationOnly": true,
+    "noEmit": false
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.stories.ts", "src/**/*.test.ts", "src/**/*.spec.ts"]
+}

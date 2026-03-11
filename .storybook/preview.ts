@@ -1,18 +1,9 @@
-import type { Preview } from '@storybook/react';
-// import React from 'react';
-// import { UIContext } from '../src/contexts';
+import type { Preview } from '@storybook/react-vite';
+
+// import { Theme } from './decorators';
 
 const preview: Preview = {
-  // decorators: [
-  //   (Story, ctx) => {
-  //     localStorage.removeItem('preferredTheme');
-  //     return (
-  //       <UIContext defaultThemeMode={ctx.globals.backgrounds.value === '#333' ? 'dark' : 'light'}>
-  //         <Story />
-  //       </UIContext>
-  //     );
-  //   },
-  // ],
+  // decorators: Theme,
 
   // https://storybook.js.org/docs/writing-stories/parameters
   parameters: {
@@ -25,7 +16,6 @@ const preview: Preview = {
   },
 
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
 };
 
 export default preview;

@@ -7,7 +7,6 @@ const meta: Meta<typeof Layout> = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
 };
 
 export default meta;
@@ -21,11 +20,7 @@ export const Default: Story = {
         SiderLeft
       </Sider>
     ),
-    content: (
-      <Content style={{ backgroundColor: 'yellow', height: '100px', width: '200px' }}>
-        Content
-      </Content>
-    ),
+    content: <Content style={{ backgroundColor: 'yellow', height: '100px', width: '200px' }}>Content</Content>,
     siderRight: (
       <Sider style={{ backgroundColor: 'blue' }} width={80}>
         SiderRight
@@ -45,11 +40,7 @@ export const Vertical: Story = {
         SiderLeft
       </Sider>
     ),
-    content: (
-      <Content style={{ backgroundColor: 'yellow', height: '100px', width: '200px' }}>
-        Content
-      </Content>
-    ),
+    content: <Content style={{ backgroundColor: 'yellow', height: '100px', width: '200px' }}>Content</Content>,
     siderRight: (
       <Sider style={{ backgroundColor: 'blue' }} width={80}>
         SiderRight

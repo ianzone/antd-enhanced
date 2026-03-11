@@ -12,7 +12,6 @@ const meta: Meta<typeof ThemeSwitch> = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
 };
 export default meta;
 

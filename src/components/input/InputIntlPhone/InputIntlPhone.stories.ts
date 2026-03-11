@@ -7,7 +7,6 @@ const meta: Meta<typeof InputIntlPhone> = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
 };
 
 export default meta;

@@ -5,7 +5,7 @@ pre-commit:
   piped: true
   jobs:
     - name: Linting & Formatting
-      glob: "*.{ts,tsx,js,jsx,json,jsonc,css}"
+      glob: '*.{ts,tsx,js,jsx,json,jsonc,css}'
       run: na biome check --fix {staged_files} --reporter summary
       stage_fixed: true
 
@@ -15,13 +15,13 @@ pre-commit:
         jobs:
           # SECTION - QA
           - name: typescript
-            glob: "*.{ts,tsx}"
+            glob: '*.{ts,tsx}'
             run: na tsc
           - name: vitest
-            glob: "*.{ts,tsx,js,jsx}"
+            glob: '*.{ts,tsx,js,jsx}'
             run: na vitest related --run {staged_files}
           - name: storybook
-            glob: "*.{tsx,jsx}"
+            glob: '*.{tsx,jsx}'
             run: echo 'use storybook'
           # SECTION - Audit
           - name: gitleaks
@@ -40,9 +40,28 @@ prepare-commit-msg:
       interactive: true
       run: na git-cz --hook
       env:
-        LEFTHOOK: "0"
+        LEFTHOOK: '0'
 
 post-merge:
+  follow: true
   commands:
-    packages:
-      run: git diff --quiet HEAD@{$(echo 1)} -- bun.lock || ni
+    check-lock:
+      run: |
+        LOCK_FILE=bun.lock
+        if git diff-tree -r --name-only ORIG_HEAD HEAD | grep $LOCK_FILE; then
+          echo $LOCK_FILE changed, updating dependencies ...
+          ni
+        fi
+
+post-checkout:
+  follow: true
+  commands:
+    check-lock:
+      run: |
+        LOCK_FILE=bun.lock
+        if [ {3} -eq 1 ]; then
+          if git diff-tree -r --name-only {1} {2} | grep $LOCK_FILE; then
+          echo $LOCK_FILE changed, updating dependencies ...
+            ni
+          fi
+        fi
