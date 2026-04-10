@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: lts/*
-      - run: bun i --frozen-lockfile
+      - run: bun i --frozen-lockfile --ignore-scripts
       - run: bun run build
       - run: bunx --package semantic-release --package @semantic-release/exec semantic-release
         id: semantic
