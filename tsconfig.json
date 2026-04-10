@@ -1,11 +1,5 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "extends": "@es-proj/configs/tsconfig.react",
+  "include": ["src"],
+  "exclude": ["src/**/*.stories.ts", "src/**/*.test.ts", "src/**/*.spec.ts"]
 }

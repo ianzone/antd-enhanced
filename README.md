@@ -6,6 +6,14 @@
 bun add antd-enhanced
 ```
 
+```html
+<script src="https://unpkg.com/antd-enhanced@latest/index.iife.js"></script>
+```
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/antd-enhanced@latest/dist/index.iife.js"></script>
+```
+
 // TODO: 添加钩子
 
 https://github.com/alewin/useWorker
